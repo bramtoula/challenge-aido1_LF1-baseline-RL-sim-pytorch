@@ -53,7 +53,7 @@ env = ResizeWrapper(env)
 env = NormalizeWrapper(env)
 env = ImgWrapper(env) # to make the images from 160x120x3 into 3x160x120
 env = ActionWrapper(env)
-env = DtRewardWrapper(env)
+#env = DtRewardWrapper(env)
 
 
 # Set seeds
@@ -67,7 +67,7 @@ max_action = float(env.action_space.high[0])
 # Initialize policy
 policy = DDPG(state_dim, action_dim, max_action, net_type="cnn")
 
-replay_buffer = utils.ReplayBuffer()
+replay_buffer = utils.ReplayBuffer(args.replay_buffer_max_size)
 
 # Evaluate untrained policy
 evaluations= [evaluate_policy(env, policy)]
