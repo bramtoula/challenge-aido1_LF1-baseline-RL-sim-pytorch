@@ -17,7 +17,6 @@ from duckietown_rl.wrappers import NormalizeWrapper, ImgWrapper, \
     DtRewardWrapper, ActionWrapper, ResizeWrapper
 
 
-
 ####### ========== IMPORTANT =========
 # This will only run if you also start the container with
 # the simulator and leave it running in the background like so
@@ -26,7 +25,7 @@ from duckietown_rl.wrappers import NormalizeWrapper, ImgWrapper, \
 
 
 
-experiment = 2
+experiment = 4
 policy_name = "DDPG"
 exp = Experiment("[duckietown] - ddpg")
 

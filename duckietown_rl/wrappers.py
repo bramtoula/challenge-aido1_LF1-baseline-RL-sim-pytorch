@@ -4,7 +4,7 @@ import numpy as np
 
 
 class ResizeWrapper(gym.ObservationWrapper):
-    def __init__(self, env=None, shape=(120, 160, 3)):
+    def __init__(self, env=None, shape=(88, 160, 3)):
         super(ResizeWrapper, self).__init__(env)
         self.observation_space.shape = shape
         self.observation_space = spaces.Box(
@@ -16,7 +16,7 @@ class ResizeWrapper(gym.ObservationWrapper):
 
     def observation(self, observation):
         from scipy.misc import imresize
-        return imresize(observation, self.shape)
+        return imresize(observation, (120, 160, 3))[32:,:,:] # Cut the top of the image
 
 
 class NormalizeWrapper(gym.ObservationWrapper):
